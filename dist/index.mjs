@@ -465,10 +465,10 @@ const compareSchema = async (current, old = {
   const date = /* @__PURE__ */ new Date();
   const name = `${date.getUTCFullYear()}${date.getUTCMonth().toString().padStart(2, "0")}${date.getUTCDate().toString().padStart(2, "0")}${date.getUTCHours().toString().padStart(2, "0")}${date.getUTCMinutes().toString().padStart(2, "0")}${date.getUTCSeconds().toString().padStart(2, "0")}-${migName}`;
   await fs.writeFile(
-    `./migrations/${name}.js`,
+    `./src/database/migrations/${name}.js`,
     script.replaceAll(`"%%`, "").replaceAll(`%%"`, "").replaceAll("\\", "")
   );
-  await fs.writeFile(`./migrations/schema.json`, saveCurrent);
+  await fs.writeFile(`./src/database/migrations/schema.json`, saveCurrent);
 };
 
 const makemigration = async (db, oldSchema) => {

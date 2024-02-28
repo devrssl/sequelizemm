@@ -48,7 +48,7 @@ const cli = async () => {
     if (!dbi || "Sequelize" !== dbi.constructor.name) {
       throw new Error("Sequelize export not found")
     }
-    const schemaPath = join(process.cwd(), "migrations/schema.json")
+    const schemaPath = join(process.cwd(), "src/database/migrations/schema.json")
     if (existsSync(schemaPath)) {
       const oldSchema = require(schemaPath)
       await makemigration(dbi, oldSchema)

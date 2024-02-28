@@ -164,8 +164,8 @@ export const compareSchema = async (
     .toString()
     .padStart(2, "0")}-${migName}`
   await fs.writeFile(
-    `./migrations/${name}.js`,
+    `./src/database/migrations/${name}.js`,
     script.replaceAll(`"%%`, "").replaceAll(`%%"`, "").replaceAll("\\", "")
   )
-  await fs.writeFile(`./migrations/schema.json`, saveCurrent)
+  await fs.writeFile(`./src/database/migrations/schema.json`, saveCurrent)
 }
